@@ -43,12 +43,6 @@ public class AddEmployee
     	String empid = objID.getAttribute("Value");
     	if(empid.equals(id))
     	{
-    		ExcelFileUtil xl = new ExcelFileUtil("./FileInput/AddEmployee.xlsx");
-    		int rc = xl.getRow("addemployee");
-    		for(int i = 1;i<=rc;i++)
-    		{
-    			xl.setCellData("addemployee", i, 3, empid, "./FileOutput/AddEmployee_Result.xlsx");
-    		}
     		return true;
     	}
     	else
