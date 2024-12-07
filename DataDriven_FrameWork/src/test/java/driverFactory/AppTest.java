@@ -1,13 +1,10 @@
 package driverFactory;
-
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-
 import applicationLayer.AddEmployee;
 import config.Base;
 import utilities.ExcelFileUtil;

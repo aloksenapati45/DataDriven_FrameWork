@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+import utilities.ExcelFileUtil;
+
 public class AddEmployee 
 {
 	WebDriver driver;
@@ -28,7 +30,7 @@ public class AddEmployee
     WebElement objSave;
     @FindBy(xpath = "//input[@id='personal_txtEmployeeId']")
     WebElement objID;
-    public boolean verifyEmp(String FirstName,String MiddleName,String LastName)
+    public boolean verifyEmp(String FirstName,String MiddleName,String LastName) throws Throwable
     {
     	Actions ac = new Actions(driver);
     	ac.moveToElement(objPIM).click().perform();
@@ -41,9 +43,17 @@ public class AddEmployee
     	String empid = objID.getAttribute("Value");
     	if(empid.equals(id))
     	{
+    		ExcelFileUtil xl = new ExcelFileUtil("./FileInput/AddEmployee.xlsx");
+    		int rc = xl.getRow("addemployee");
+    		for(int i = 1;i<=rc;i++)
+    		{
+    			xl.setCellData("addemployee", i, 3, empid, "./FileOutput/AddEmployee_Result.xlsx");
+    		}
     		return true;
     	}
     	else
+    	{
     		return false;
+    	}
     }
 }
