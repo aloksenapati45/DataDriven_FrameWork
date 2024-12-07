@@ -13,6 +13,8 @@ import utilities.ExcelFileUtil;
 
 public class AppTest extends Base
 {
+	String Candidateinput = "./FileInput/AddCandidate.xlsx";
+	String Candidateoutput = "./FileInput/AddCandidate_Reslut.xlsx";
 	String inputpath = "./FileInput/AddEmployee.xlsx";
 	String outputpath = "./FileOutput/AddEmployee_Result.xlsx";
 	ExtentReports report;
@@ -55,7 +57,7 @@ public class AppTest extends Base
     public void verifyCandidate() throws Throwable
     {
     	report = new ExtentReports("./target/reports/AddCandidate.html");
-    	ExcelFileUtil xl = new ExcelFileUtil(inputpath);
+    	ExcelFileUtil xl = new ExcelFileUtil(Candidateinput);
     	int rc = xl.getRow(CandidateSheet);
     	Reporter.log("count of row : ",rc,true);
     	for(int i =1;i<=rc;i++)
@@ -75,12 +77,12 @@ public class AppTest extends Base
     		if(res)
     		{
     			logger.log(LogStatus.PASS, "cadidate successfully uploaded");
-    			xl.setCellData(CandidateSheet, i, 7, "Pass", outputpath);
+    			xl.setCellData(CandidateSheet, i, 7, "Pass", Candidateoutput);
     		}
     		else
     		{
     			logger.log(LogStatus.FAIL, "candidate not updated");
-    			xl.setCellData(CandidateSheet, i, 7, "fail", outputpath);
+    			xl.setCellData(CandidateSheet, i, 7, "fail", Candidateoutput);
     		}
     	}
     	report.endTest(logger);
