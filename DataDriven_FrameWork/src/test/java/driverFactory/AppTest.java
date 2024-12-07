@@ -14,7 +14,7 @@ import utilities.ExcelFileUtil;
 public class AppTest extends Base
 {
 	String Candidateinput = "./FileInput/AddCandidate.xlsx";
-	String Candidateoutput = "./FileInput/AddCandidate_Reslut.xlsx";
+	String Candidateoutput = "./FileOutput/AddCandidate_Reslut.xlsx";
 	String inputpath = "./FileInput/AddEmployee.xlsx";
 	String outputpath = "./FileOutput/AddEmployee_Result.xlsx";
 	ExtentReports report;
