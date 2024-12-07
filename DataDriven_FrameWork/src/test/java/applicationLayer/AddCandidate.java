@@ -56,7 +56,7 @@ public class AddCandidate
     	objComment.sendKeys(comment);
     	objData.click();
     	objSave.click();
-    	String res = objDescription.getAttribute("Value");
+    	String res = objDescription.getText();
     	if(res.contains(fname))
     	{
     		return true;
