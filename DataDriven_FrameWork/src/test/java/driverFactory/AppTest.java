@@ -79,7 +79,7 @@ public class AppTest extends Base
     			logger.log(LogStatus.PASS, "cadidate successfully uploaded");
     			xl.setCellData(CandidateSheet, i, 7, "Pass", Candidateoutput);
     		}
-    		else
+    		if(!res)
     		{
     			logger.log(LogStatus.FAIL, "candidate not updated");
     			xl.setCellData(CandidateSheet, i, 7, "fail", Candidateoutput);
